@@ -7,7 +7,7 @@
 
  <!-- *ngIf="btnCadastro" ou *ngIf="!btnCadastro" com bug da versão do Angular -->
   <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary" (click)="cadastrar()">
-  <input type="button" value="Editar"    *ngIf="!btnCadastro" class="btn btn-warning">
+  <input type="button" value="Editar"    *ngIf="!btnCadastro" class="btn btn-warning" (click)="editar()">
   <input type="button" value="Excluir"   *ngIf="!btnCadastro" class="btn btn-danger">
   <input type="button" value="Cancelar"  *ngIf="!btnCadastro" class="btn btn-secondary">
 </form>

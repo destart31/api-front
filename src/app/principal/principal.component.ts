@@ -61,6 +61,34 @@ export class PrincipalComponent {
     // Visibilidade da tabela
     this.tabela = false;
   }
+
+  // Metodo para editar clientes
+  editar():void{
+    this.servico.editar(this.cliente)
+    .subscribe(retorno => {
+      // obter posição do vetor do cliente
+      let posicao = this.clientes.findIndex(obj => {
+        return obj.codigo == retorno.codigo;
+      });
+
+      // Alterar os dados do cliente
+      this.clientes[posicao] = retorno;
+
+      // Visibilidade dos botões
+      this.btnCadastro = true;
+
+      // Visibilidade da tabela
+      this.tabela = true;
+
+      // Limpar formulario
+      this.cliente = new Cliente();
+
+      // Mensagem
+      alert("Cliente alterado com sucesso!");
+    });
+
+
+  }
   // Metodo de inicialização
   ngOnInit(){
     this.selecionar();
