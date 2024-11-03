@@ -86,9 +86,33 @@ export class PrincipalComponent {
       // Mensagem
       alert("Cliente alterado com sucesso!");
     });
-
-
   }
+  // Metodo para editar clientes
+  remover():void{
+    this.servico.remover(this.cliente.codigo)
+    .subscribe(retorno => {
+      // obter posição do vetor do cliente
+      let posicao = this.clientes.findIndex(obj => {
+        return obj.codigo == this.cliente.codigo;
+      });
+
+      // Remover cliente
+      this.clientes.splice(posicao, 1);
+
+      // Visibilidade dos botões
+      this.btnCadastro = true;
+
+      // Visibilidade da tabela
+      this.tabela = true;
+
+      // Limpar formulario
+      this.cliente = new Cliente();
+
+      // Mensagem
+      alert("Cliente removido com sucesso!");
+    });
+    }
+
   // Metodo de inicialização
   ngOnInit(){
     this.selecionar();
