@@ -112,6 +112,17 @@ export class PrincipalComponent {
       alert("Cliente removido com sucesso!");
     });
     }
+    // Metodo para cancelar
+    cancelar():void{
+      // Visibilidade dos botões
+      this.btnCadastro = true;
+
+      // Visibilidade da tabela
+      this.tabela = true;
+
+      // Limpar formulario
+      this.cliente = new Cliente();
+    }
 
   // Metodo de inicialização
   ngOnInit(){
